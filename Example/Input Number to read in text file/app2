@@ -1,0 +1,125 @@
+package net.codejava.io;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.InputStreamReader;
+import java.io.IOException;
+
+// NUMBER 1.
+
+public class Activity {
+
+	public static void main(String[] args) throws IOException {
+		
+		
+		
+		try {
+	
+		
+			// creates a file reader
+			FileReader reader = new FileReader("C:\\Users\\Paul Danga\\Documents\\Sequence.txt");
+						
+			// creates a buffered reader
+			BufferedReader bufferedReader = new BufferedReader (reader);
+			
+			String int_line; // returns the stream of lines from the string
+		
+			
+			while ((int_line = bufferedReader.readLine()) != null) { // reads integer value from current reader as string
+				int input_Value = Integer.parseInt(int_line); // then parsing the string into an integer
+	            
+	            
+	            
+			BufferedReader input = new BufferedReader (new InputStreamReader (System.in)); // created object to store data
+				System.out.println("\nEnter a number: "); // ask the user for input
+				int num = Integer.parseInt(input.readLine()); // takes the number as an input
+				
+				System.out.println("Input: " + num); // String concatenation
+				
+				// IF-ELSE Statements to run whether the code is true or false
+	            if (( num == 10) || (num == 12) || (num == 15) || (num == 11) || (num == 86) || (num == 25)) { 
+					System.out.println("Output: Found");
+					
+	            } else {
+	            	System.out.println("Output: Not Found");
+	            }
+		
+	            reader.close(); // to close the stream
+			} 
+			
+		}
+		
+		catch (IOException e) { // Used to handle the exception by declaring the type of exception within the parameter
+			e.printStackTrace(); 
+		}
+		
+	}
+ 
+
+
+// NUMBER 2
+static void modifyFile(String filePath, String oldString, String newString)
+	    {
+	  File fileToBeModified = new File(filePath);
+	         
+	  String oldContent = "";
+	         
+	  BufferedReader reader = null;
+	         
+	  FileWriter writer = null;
+	         
+	  try
+	     {
+		 
+		 
+		// creates a file reader
+		 FileReader fr = new FileReader("C:\\Users\\Paul Danga\\Documents\\Bois.txt");
+		
+		// creates a buffered reader
+		 BufferedReader bufferedReader = new BufferedReader (reader);
+		
+		 
+		String line; // returns the stream of lines from the string
+	
+		while ((line = bufferedReader.readLine()) != null) {
+			System.out.print(line);
+			
+			
+		BufferedReader input = new BufferedReader (new InputStreamReader (System.in)); // created object to store data
+			System.out.println("\nEnter a string to replace: "); // ask the user for input
+			String name = input.readLine();
+			
+				System.out.println("Input: " + name); // String concatenation
+
+				// IF-ELSE Statements to run whether the code is true or false
+	            if (( name == "Juwan") || (name == "Limbo)" || (name == "Al Joseph") || (name == "Laure"))) { 
+					System.out.println("Found");
+					
+	            } else {
+	            	System.out.println("Not Found");
+	            }
+	            
+	            System.out.println("Enter another name for replacement: ");
+	            String newContent = oldContent.replaceAll(oldString, newString);
+	            	System.out.println("New word: " + newContent);
+	         
+	            	//Rewriting the input text file with newContent
+	                
+	            writer = new FileWriter(fileToBeModified);
+	                 
+	            writer.write(newContent);
+	            	}
+		
+	 			}
+	 
+	            catch (IOException e)
+	            {
+	                e.printStackTrace();
+	            }
+	            
+	        }
+		}
+	 
+	
